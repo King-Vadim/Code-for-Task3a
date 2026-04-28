@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>GLH.shop - Dashboard</title>
+    <link rel="stylesheet" href="/static/stylesheet.css" />
+    <link rel="icon" href="/static/assets/favicon.png" type="image/png" />
+    <meta name="google" content="notranslate" />
+</head>
+<body>
+    <header>
+        <a href="/"><img src="/static/assets/logo.png" alt="Greenfield Local Hub Logo" class="header-logo" height="200" width="200" /></a>
+        <div class="header-nav">
+            <div class="mainbuttons">
+                <button onclick="document.location='/aboutus'">About us</button>
+                <button onclick="document.location='/contactus'">Contact us</button>
+                <button onclick="document.location='/shophome'">Shop</button>
+            </div>
+
+            <div class="accountbuttons">
+                {% block navbar %}
+                {% if current_user.is_authenticated %}
+                <button onclick="document.location='/logout'">Logout</button>
+                <button id="shoppingcartbutton">Shopping cart</button>
+                {% block navdashboard%}
+                {% if current_user.accounttype == 'customer' %}
+                <button onclick="document.location='/cdashboard'">Dashboard</button>
+                {% else %}
+                <button onclick="document.location='/pdashboard'">Dashboard</button>
+                {% endif %}
+                {% endblock %}
+                {% else %}
+                <button onclick="document.location='/register'">Sign up</button>
+                <button onclick="document.location='/login'">Log in</button>
+                {% endif %}
+                {% endblock %}
+            </div>
+        </div>
+
+    </header>
+
+    <div id="sc-modal" class="sc-modal">
+        <div class="shoppingcart-content">
+            <span class="close">&times;</span>
+            <p>Text. Text. Text.</p>
+            <p>Text. Text. Text.</p>
+        </div>
+    </div>
+
+    <div class="products-table" style="margin-top: 250px; margin-bottom: 125px;">
+        <table>
+            <thead>
+                <tr>
+                    <th>Product ID</th>
+                    <th>Product Name</th>
+                    <th>Product Type</th>
+                    <th>Product Price</th>
+                    <th>Product Description</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for product in products %}
+                <tr>
+                    <td>{{product.id}}</td>
+                    <td>{{product.pname}}</td>
+                    <td>{{product.ptype}}</td>
+                    <td>{{product.price}}</td>
+                    <td>{{product.pdesc}}</td>
+                    <td>
+                        <button class="modify-button" onclick="openModal('{{product.id}}','{{product.pname}}','{{product.price}}','{{product.pdesc}}')">Modify</button>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <div class="modify-modal" id="edit-modal">
+        <div class="modify-modal-content">
+            <span class="close">&times;</span>
+            <form method="post" action="/update-product">
+                <input type="hidden" name="id" id="modal-id" />
+                <label for="pname">New Product Name</label>
+                <input type="text" name="pname" id="modal-pname" required />
+                <label for="price">New Product Price</label>
+                <input type="number" name="price" id="modal-price" step="0.01" required />
+                <label for="pdesc">New Product Description</label>
+                <input type="text" name="pdesc" id="modal-pdesc" required />
+                <button type="submit">Update</button>
+            </form>
+        </div>
+    </div>
+
+    <button onclick="document.location='/pdashboard'" style="display: flex; justify-content: center; align-items: center; margin:auto; margin-bottom: 125px;">Cancel</button>
+
+    <footer>
+        <a href="/"><img src="/static/assets/logo.png" height="400px" width="400px" /></a>
+
+        <div class="sitemap">
+            <h1>Sitemap</h1>
+            <a href="/">Home</a>
+            <a href="/contactus">Contact us</a>
+            <a href="/aboutus">About us</a>
+            <a href="/shophome">Shop</a>
+        </div>
+
+    </footer>
+    <script src="/static/shopping-cart.js"></script>
+    <script>
+        var modal = document.querySelector(".modify-modal");
+
+        var buttons = document.querySelectorAll(".modify-button");
+
+        var span = document.querySelector(".close");
+
+        span.onclick = function () {
+            modal.style.display = "none";
+        }
+
+        window.onclick = function (event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+
+        function openModal(id, name, price, desc) {
+            document.getElementById('modal-id').value = id;
+            document.getElementById('modal-pname').value = name;
+            document.getElementById('modal-price').value = price;
+            document.getElementById('modal-pdesc').value = desc;
+            document.getElementById('edit-modal').style.display = 'block';
+        }
+    </script>
+</body>
+</html>

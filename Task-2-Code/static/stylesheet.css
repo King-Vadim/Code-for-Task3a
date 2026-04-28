@@ -1,0 +1,731 @@
+/* CSS for the body */
+
+body {
+    font-family: Verdana, Geneva, sans-serif;
+}
+
+/* CSS for button */
+
+button {
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    background-color: orangered;
+    border: 1px solid black;
+    border-radius: 15px;
+    transition-duration: 0.5s;
+    padding: 16px 32px;
+}
+
+button:hover {
+    background-color: white;
+    color: black;
+}
+
+/* CSS for header & header buttons */
+
+header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-bottom: 35px;
+}
+
+header button {
+    margin-top: 35px;
+    margin-bottom: 35px;
+}
+
+.header-nav {
+    background-color: #94d194;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 150px;
+}
+
+.header-logo {
+    margin-bottom: 35px;
+}
+
+/* CSS for hero image in the shop home page*/
+/* hero-text in shop hero image is shared with home page hero images CSS*/
+
+.shop-hero-image {
+    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.2)), url(/static/assets/shop-hero-image.jpg);
+    height: 75vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+
+/* CSS for hero image & hero image slideshow (home page) */
+
+.slideshow-container {
+    position: relative;
+    border-radius: 5px;
+    max-width: 2500px;
+    margin: auto;
+}
+
+.hero-text {
+    text-align: left;
+    position: absolute;
+    top: 35%;
+    color: white;
+    margin-left: 30px;
+    text-shadow: 2px 2px black
+}
+
+.hero-text button {
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    background-color: orangered;
+    border: 1px solid black;
+    border-radius: 15px;
+    transition-duration: 0.5s;
+    padding: 16px 32px;
+    margin-left: 25px;
+    margin-right: 25px;
+}
+
+.hero-text button:hover {
+    background-color: white;
+    color: black;
+}
+
+.numbertext {
+    color: #f2f2f2;
+    font-size: 12px;
+    padding: 8px 12px;
+    position: absolute;
+    top: 0;
+}
+
+.dot {
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+}
+
+.active {
+    background-color: #717171;
+}
+
+.fade {
+    animation-name: fade;
+    animation-duration: 1.5s;
+}
+
+@keyframes fade {
+    from {
+        opacity: .4
+    }
+
+    to {
+        opacity: 1
+    }
+}
+
+@media only screen and (max-width: 300px) {
+    .text {
+        font-size: 11px
+    }
+}
+
+.slideshow-img {
+    background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.5));
+    height: 1250px;
+}
+
+/* CSS for "our story" section */
+
+.our-story {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    max-width: 1000px;
+    background-color: #94d194;
+    border-radius: 20px;
+    margin-top: 250px;
+    margin-bottom: 250px;
+}
+
+/* CSS for price comparison section */
+
+.price-comparison {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+}
+
+.pc-card {
+    background-color: #f2f2f2;
+    text-align: center;
+    padding: 32px 32px;
+    margin-left: 15px;
+    margin-right: 15px;
+    border-radius: 5px;
+}
+
+.img-glhprice {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+}
+
+
+.GLH-price {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: auto;
+    background-color: darkgreen;
+    border-radius: 50%;
+    color: white;
+    height: 75px;
+    width: 75px;
+}
+
+.pc-img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* CSS for footer */
+
+footer {
+    background-color: #94d194;
+    display: flex;
+    margin-top: 15px;
+}
+
+.sitemap {
+    font-size: 34px;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    right: 100px;
+}
+
+/* CSS for "cards" section */
+
+.cards {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 150px;
+}
+
+.glhcard {
+    background-color: #94d194;
+    border: 1px solid black;
+    border-radius: 25px;
+    margin-left: 15px;
+    margin-right: 15px;
+}
+
+.psvg {
+    height:50px;
+    width:50px;
+}
+
+/* CSS for customer testimonials */
+
+.testimonials {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 250px;
+}
+
+.testimonialcard {
+    background-color: #94d194;
+    border: 1px solid black;
+    border-radius: 25px;
+    display: flex;
+    flex-direction: column;
+    margin-left: 15px;
+    margin-right: 15px;
+}
+
+/* CSS for about us collapsible */
+
+.collapsible {
+    background-color: #70c270;
+    color: black;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 32px;
+    margin-top: 50px
+}
+
+.active, .collapsible:hover {
+     background-color: #555;
+     color: white;
+}
+
+.content {
+    padding: 0 18px;
+    display: none;
+    overflow: hidden;
+    background-color: #f1f1f1;
+}
+
+.aboutus-collapsible {
+    margin-bottom: 250px;
+}
+
+/* CSS for contact us form */
+
+input[type=text], select, textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-top: 6px;
+    margin-bottom: 16px;
+    resize: vertical;
+}
+
+input[type=submit] {
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    background-color: orangered;
+    border: 1px solid black;
+    border-radius: 15px;
+    transition-duration: 0.5s;
+    padding: 16px 32px;
+}
+
+input[type=submit]:hover {
+    background-color: white;
+    color: black;
+}
+
+.contactform {
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px;
+    width: 25%;
+    margin-left: 350px;
+}
+
+.map {
+    height: 500px;
+    width: 100%;
+    background-color: orangered;
+}
+
+.our-store {
+    border-radius: 5px;
+    border: 1px solid black;
+    padding: 12px 12px;
+    background-color: #f2f2f2;
+    border-radius: 5px;
+}
+
+.contactus-maincontent {
+    display: flex;
+    gap: 500px;
+    margin-bottom: 125px;
+}
+
+/* CSS for links to social media in the contact us page */
+
+.socialmedialinks {
+    border-radius: 5px;
+    margin-left: 350px;
+    border: 1px solid black;
+    padding: 20px 20px;
+    background-color: #f2f2f2;
+    width: 350px;
+    margin-bottom: 75px;
+}
+
+/* CSS for login and signup */
+
+.signupform {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    border: 1px solid black;
+    height: 45vh;
+    width: 50vh;
+    padding: 32px 32px;
+}
+
+.loginform {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    border: 1px solid black;
+    height: 45vh;
+    width: 50vh;
+    padding: 32px 32px;
+}
+
+input[type=password], select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-top: 6px;
+    margin-bottom: 16px;
+    resize: vertical;
+}
+
+/* CSS for dashboard interactive sections */
+
+.dashboard-interact {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+    margin-bottom: 300px;
+}
+
+.db-int-card {
+    border: 1px solid black;
+    border-radius: 25px;
+    padding: 32px 32px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+/* CSS for adding items to database */
+.product-add input[type=text], input[type=number] {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid black;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-top: 6px;
+    margin-bottom: 16px;
+    resize: vertical;
+}
+
+.product-add {
+    border-radius: 5px;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+}
+
+.products-table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+}
+
+th, td {
+    padding: 16px;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+/* CSS for modal in modifying database items*/
+.modify-modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    padding-top: 100px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4);
+}
+
+.modify-modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+}
+
+.close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 29px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/*CSS for most popular item in shop home*/
+
+.mostpopularitem {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.popularitemcard {
+    position: relative;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 32px 32px;
+    height: 500px;
+    width: 350px;
+}
+
+.card-link {
+    text-decoration: none;
+    color: inherit;
+}
+
+.card-link::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    cursor: pointer;
+    z-index: 1;
+}
+
+/* CSS For the product page */
+
+.product-img {
+    display: flex;
+    width: 512px;
+    height: 512px;
+    margin-left: 350px;
+}
+
+.product-img img {
+    border-radius: 5px;
+    border: 1px solid black;
+}
+
+.product-name-addtocart {
+    position: absolute;
+    top: 400px;
+    left: 1250px;
+}
+
+
+.quantity {
+    display: flex;
+    border: 2px solid black;
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+    .quantity button {
+        background-color: orangered;
+        color: #fff;
+        border: none;
+        cursor: pointer;
+        font-size: 20px;
+        width: 30px;
+        height: auto;
+        text-align: center;
+        transition: background-color 0.2s;
+    }
+
+        .quantity button:hover {
+            background-color: white;
+            color: black;
+        }
+
+.input-box {
+    width: 40px;
+    text-align: center;
+    border: none;
+    padding: 8px 10px;
+    font-size: 16px;
+    outline: none;
+}
+
+    /* Hide the number input spin buttons */
+    .input-box::-webkit-inner-spin-button,
+    .input-box::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+
+    .input-box[type="number"] {
+        -moz-appearance: textfield;
+    }
+
+
+/* CSS for shopping cart */
+
+.sc-modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    padding-top: 100px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4);
+}
+
+.shoppingcart-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid black;
+    width: 80%;
+}
+
+.close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* CSS for checkout page */
+
+.row {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    margin: 0 -16px;
+    justify-content: center;
+}
+
+.col-25 {
+    -ms-flex: 25%;
+    flex: 25%;
+    max-width: 250px;
+}
+
+.col-50 {
+    -ms-flex: 50%;
+    flex: 50%;
+}
+
+.col-75 {
+    -ms-flex: 75%;
+    flex: 75%;
+    max-width: 1000px;
+    width: 100%;
+}
+
+.col-25,
+.col-50,
+.col-75{
+    padding: 0 16px;
+}
+
+.container {
+    background-color: #f2f2f2;
+    padding: 5px 20px 15px 20px;
+    border: 1px solid lightgrey;
+    border-radius: 3px;
+}
+
+input[type=text] {
+    width: 100%;
+    margin-bottom: 20px;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+.icon-container {
+    margin-bottom: 20px;
+    padding: 7px 0;
+    font-size: 24px;
+}
+
+.btn:hover {
+    background-color: #45a049;
+}
+
+span.price {
+    float: right;
+    color: grey;
+}
+
+@media (max-width: 800px) {
+    .row {
+        flex-direction: column-reverse;
+    }
+
+    .col-25 {
+        margin-bottom: 20px;
+    }
+}

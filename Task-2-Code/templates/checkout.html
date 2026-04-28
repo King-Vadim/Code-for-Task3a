@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>GLH.shop - Home</title>
+    <link rel="stylesheet" href="/static/stylesheet.css" />
+    <link rel="icon" href="/static/assets/favicon.png" type="image/png" />
+</head>
+<body>
+    <header>
+        <a href="/"><img src="/static/assets/logo.png" alt="Greenfield Local Hub Logo" class="header-logo" height="200" width="200" /></a>
+        <div class="header-nav">
+            <div class="mainbuttons">
+                <button onclick="document.location='/aboutus'">About us</button>
+                <button onclick="document.location='/contactus'">Contact us</button>
+                <button onclick="document.location='/shophome'">Shop</button>
+            </div>
+
+            <div class="accountbuttons">
+                {% block navbar %}
+                {% if current_user.is_authenticated %}
+                <button onclick="document.location='/logout'">Logout</button>
+                <button id="shoppingcartbutton">Shopping cart</button>
+                {% block navdashboard%}
+                {% if current_user.accounttype == 'customer' %}
+                <button onclick="document.location='/cdashboard'">Dashboard</button>
+                {% else %}
+                <button onclick="document.location='/pdashboard'">Dashboard</button>
+                {% endif %}
+                {% endblock %}
+                {% else %}
+                <button onclick="document.location='/register'">Sign up</button>
+                <button onclick="document.location='/login'">Log in</button>
+                {% endif %}
+                {% endblock %}
+            </div>
+        </div>
+
+    </header>
+
+    <h1 style="font-size: 72px; text-align: center">Checkout</h1>
+
+    <div class="row">
+        <div class="col-75">
+            <div class="container">
+                <form method="post">
+                    <div class="row">
+                        <div class="col-50">
+                            <input type="hidden" name="productnamec" value="{{productname}}">
+                            <input type="hidden" name="quantityc" value="{{quantity}}">
+                            <input type="hidden" name="pricec" value="{{total_price}}">
+                            <h3>Address</h3>
+                            <label for="fname"><i class="fa fa-user"></i> Full Name</label>
+                            <input type="text" id="fname" name="fullname" placeholder="Name here...">
+                            <label for="email"><i class="fa fa-envelope"></i> Email</label>
+                            <input type="text" id="email" name="email" placeholder="Email here...">
+                            <label for="adr"><i class="fa fa-address-card-o"></i> Address</label>
+                            <input type="text" id="adr" name="address" placeholder="Address here...">
+                            <label for="city"><i class="fa fa-institution"></i> City</label>
+                            <input type="text" id="city" name="city" placeholder="City here...">
+                            <label for="postalcode">Postal code</label>
+                            <input type="text" id="pc" name="pc" placeholder="Postal code here..." />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-50">
+                            <h3>Payment</h3>
+                            <label for="cname">Name on card</label>
+                            <input type="text" id="cname" name="cardname" placeholder="Name on card..." />
+                            <label for="ccnum">Card number</label>
+                            <input type="text" id="ccnum" name="cardnumber" placeholder="1111-2222-3333-4444" />
+                            <label for="exp">Expiry</label>
+                            <input type="text" id="exp" name="exp" placeholder="11/22" />
+                            <label for="cvv">CVV</label>
+                            <input type="text" id="cvv" name="cvv" placeholder="123" />
+                        </div>
+                    </div>
+                    <input type="submit" value="Proceed with Payment" class="btn" />
+                </form>
+            </div>
+        </div>
+        <div class="col-25">
+            <div class="container">
+                <h4>Cart</h4>
+                <p>Product: {{productname}}</p>
+                <p>Quantity: {{quantity}}</p>
+                <p>Total Price: &pound;{{total_price}}</p>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <a href="/"><img src="/static/assets/logo.png" height="400px" width="400px" /></a>
+
+        <div class="sitemap">
+            <h1>Sitemap</h1>
+            <a href="/">Home</a>
+            <a href="/contactus">Contact us</a>
+            <a href="/aboutus">About us</a>
+            <a href="/shophome">Shop</a>
+        </div>
+
+    </footer>
+
+    <script src="/static/quantity.js"></script>
+    <script src="/static/shopping-cart.js"></script>
+</body>
+</html>

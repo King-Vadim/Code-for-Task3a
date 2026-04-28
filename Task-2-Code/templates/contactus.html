@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>GLH - Contact us</title>
+    <link rel="stylesheet" href="/static/stylesheet.css" />
+    <link rel="icon" href="/static/assets/favicon.png" type="image/png" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.css" integrity="sha512-Zcn6bjR/8RZbLEpLIeOwNtzREBAJnUKESxces60Mpoj+2okopSAcSUIUOseddDm0cxnGQzxIR7vJgsLZbdLE3w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.js" integrity="sha512-BwHfrr4c9kmRkLw6iXFdzcdWV/PGkVgiIyIWLLlTSXzWQzxuSg4DiQUCpauz/EWjgk5TYQqX/kvn9pG1NpYfqg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+</head>
+<body>
+    <header>
+        <a href="/"><img src="/static/assets/logo.png" alt="Greenfield Local Hub Logo" class="header-logo" height="200" width="200" /></a>
+        <div class="header-nav">
+            <div class="mainbuttons">
+                <button onclick="document.location='/aboutus'">About us</button>
+                <button onclick="document.location='/contactus'">Contact us</button>
+                <button onclick="document.location='/shophome'">Shop</button>
+            </div>
+        </div>
+    </header>
+
+    <div class="contactus-maincontent">
+        <div class="contactform">
+            <h1 class="contactusmessage">Send us a message</h1>
+            <form method="post">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" placeholder="Your name" required />
+
+                <label for="email">Email</label>
+                <input type="text" id="email" name="email" placeholder="Your email" required />
+
+                <label for="message">Message</label>
+                <textarea id="message" name="message" placeholder="Write something" required style="height:200px"></textarea>
+
+                <input id="submitbutton" type="submit" value="Submit" onclick='document.getElementById("here").innerHTML="Thank you for sending a message. We will get back to you as soon as we can!"' />
+                <p id="here"></p>
+            </form>
+        </div>
+
+        <div id="map"></div>
+
+        <div class="our-store">
+            <h1>Where to find us</h1>
+            <h2>Our physical store</h2>
+            <p>123 Road Street</p>
+            <p>City</p>
+            <p>Postal Code</p>
+            <p>United Kingdom</p>
+            <h1>Our details</h1>
+            <p>+44 12345 678901</p>
+            <p>info@greenfieldlocalhub.co.uk</p>
+
+        </div>
+    </div>
+
+    <div class="socialmedialinks">
+        <h1>You can find us here</h1>
+        <a href="/contactus">
+            <img src="/static/assets/socialmedia-icon-1.png" height="50px" width="50px" />
+        </a>
+        <a href="/contactus">
+            <img src="/static/assets/socialmedia-icon-2.png" height="50px" width="50px" />
+        </a>
+        <a href="/contactus">
+            <img src="/static/assets/socialmedia-icon-3.png" height="50px" width="50px" />
+        </a>
+        <a href="/contactus">
+            <img src="/static/assets/socialmedia-icon-4.png" height="50px" width="50px" />
+        </a>
+    </div>
+
+    <footer>
+        <a href="/"><img src="/static/assets/logo.png" height="400px" width="400px" /></a>
+
+        <div class="sitemap">
+            <h1>Sitemap</h1>
+            <a href="/">Home</a>
+            <a href="/contactus">Contact us</a>
+            <a href="/aboutus">About us</a>
+            <a href="/shophome">Shop</a>
+        </div>
+
+    </footer>
+
+    <script src="/static/leaflet-map.js"></script>
+</body>
+</html>

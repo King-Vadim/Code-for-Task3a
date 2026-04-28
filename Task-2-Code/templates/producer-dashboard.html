@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>GLH.shop - Dashboard</title>
+    <link rel="stylesheet" href="/static/stylesheet.css" />
+    <link rel="icon" href="/static/assets/favicon.png" type="image/png" />
+</head>
+<body>
+    <header>
+        <a href="/"><img src="/static/assets/logo.png" alt="Greenfield Local Hub Logo" class="header-logo" height="200" width="200" /></a>
+        <div class="header-nav">
+            <div class="mainbuttons">
+                <button onclick="document.location='/aboutus'">About us</button>
+                <button onclick="document.location='/contactus'">Contact us</button>
+                <button onclick="document.location='/shophome'">Shop</button>
+            </div>
+
+            <div class="accountbuttons">
+                {% block navbar %}
+                {% if current_user.is_authenticated %}
+                <button onclick="document.location='/logout'">Logout</button>
+                <button id="shoppingcartbutton">Shopping cart</button>
+                {% block navdashboard%}
+                {% if current_user.accounttype == 'customer' %}
+                <button onclick="document.location='/cdashboard'">Dashboard</button>
+                {% else %}
+                <button onclick="document.location='/pdashboard'">Dashboard</button>
+                {% endif %}
+                {% endblock %}
+                {% else %}
+                <button onclick="document.location='/register'">Sign up</button>
+                <button onclick="document.location='/login'">Log in</button>
+                {% endif %}
+                {% endblock %}
+            </div>
+        </div>
+
+    </header>
+
+    <div id="sc-modal" class="sc-modal">
+        <div class="shoppingcart-content">
+            <span class="close">&times;</span>
+            <p>Text. Text. Text.</p>
+            <p>Text. Text. Text.</p>
+        </div>
+    </div>
+
+    <h1 style="font-size: 72px; text-align: center;">Welcome to the producer dashboard.</h1>
+    <h2 style="font-size: 68px; text-align:center;">Manage stock</h2>
+
+    <div class="dashboard-interact">
+        <card class="db-int-card">
+            <h2>View stock</h2>
+            <button onclick="document.location='/pdashboardview'">View</button>
+        </card>
+        <card class="db-int-card">
+            <h2>Add to stock</h2>
+            <button onclick="document.location='/pdashboardadd'">Add</button>
+        </card>
+        <card class="db-int-card">
+            <h2>Remove from stock</h2>
+            <button onclick="document.location='/pdashboardremove'">Remove</button>
+        </card>
+        <card class="db-int-card">
+            <h2>Modify stock</h2>
+            <button onclick="document.location='/pdashboardmodify'">Modify</button>
+        </card>
+    </div>
+
+    <footer>
+        <a href="/"><img src="/static/assets/logo.png" height="400px" width="400px" /></a>
+
+        <div class="sitemap">
+            <h1>Sitemap</h1>
+            <a href="/">Home</a>
+            <a href="/contactus">Contact us</a>
+            <a href="/aboutus">About us</a>
+            <a href="/shophome">Shop</a>
+        </div>
+
+    </footer>
+    <script src="/static/shopping-cart.js"></script>
+</body>
+</html>

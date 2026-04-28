@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>GLH.shop - Home</title>
+    <link rel="stylesheet" href="/static/stylesheet.css" />
+    <link rel="icon" href="/static/assets/favicon.png" type="image/png" />
+</head>
+<body>
+    <header>
+        <a href="/"><img src="/static/assets/logo.png" alt="Greenfield Local Hub Logo" class="header-logo" height="200" width="200" /></a>
+        <div class="header-nav">
+            <div class="mainbuttons">
+                <button onclick="document.location='/aboutus'">About us</button>
+                <button onclick="document.location='/contactus'">Contact us</button>
+                <button onclick="document.location='/shophome'">Shop</button>
+            </div>
+
+            <div class="accountbuttons">
+                {% block navbar %}
+                {% if current_user.is_authenticated %}
+                <button onclick="document.location='/logout'">Logout</button>
+                <button id="shoppingcartbutton">Shopping cart</button>
+                {% block navdashboard%}
+                {% if current_user.accounttype == 'customer' %}
+                <button onclick="document.location='/cdashboard'">Dashboard</button>
+                {% else %}
+                <button onclick="document.location='/pdashboard'">Dashboard</button>
+                {% endif %}
+                {% endblock %}
+                {% else %}
+                <button onclick="document.location='/register'">Sign up</button>
+                <button onclick="document.location='/login'">Log in</button>
+                {% endif %}
+                {% endblock %}
+            </div>
+        </div>
+
+    </header>
+
+    <div id="sc-modal" class="sc-modal">
+        <div class="shoppingcart-content">
+            <span class="close">&times;</span>
+            <p>Text. Text. Text.</p>
+            <p>Text. Text. Text.</p>
+        </div>
+    </div>
+
+    <div class="product-img">
+        <img src="/static/assets/shop-mix-basket.jpg" />
+    </div>
+
+    <div class="product-name-addtocart">
+        <h1 style="font-size:72px;">Variety Basket Mix</h1>
+        <h2 style="font-size:56px;">£15 (incl. VAT)</h2>
+        <h3 style="font-size:32px;">Quantity</h3>
+
+        <form method="post" action="/confirm">
+            <div class="quantity" style="margin-bottom: 15px;">
+                <input type="hidden" name="productname" value="Mix Basket" />
+                <input type="hidden" name="price" value="15" />
+                <button type="button" class="minus" aria-label="Decrease">&minus;</button>
+                <input id="qty" name="quantity" type="number" class="input-box" value="1" min="1" max="10">
+                <button type="button" class="plus" aria-label="Increase">&plus;</button>
+            </div>
+
+            <button type="submit">Buy Now</button>
+        </form>
+    </div>
+
+    <div class="product-info" style="display: flex; justify-content: center; align-items: center; flex-direction: column; margin-top:50px;">
+
+        <p>Basket of mixed produce to help you reach your 5 a day.</p>
+        <p>All generous helpings.</p>
+
+        <p>Please note: though items listed are intended produce to be delivered, due to availability and quality some items may be swapped for another.</p>
+
+        <h3>Mixed boxes for: 21-26 April</h3>
+        <div class="foods-table" style="margin-top: 15px; margin-bottom: 15px; border: 1px solid black;">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Produce</th>
+                        <th>Grower</th>
+                        <th>Method</th>
+                        <th>Location</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Apples</td>
+                        <td>Greenfield Local Hub Farm</td>
+                        <td>Certified Organic</td>
+                        <td>Kent, UK</td>
+                    </tr>
+                    <tr>
+                        <td>Bananas</td>
+                        <td>The Banana Company</td>
+                        <td>Certified Organic</td>
+                        <td>Dominican Republic</td>
+                    </tr>
+                    <tr>
+                        <td>Onions</td>
+                        <td>Onions Organisation</td>
+                        <td>Certified Organic</td>
+                        <td>Greater Manchester, UK</td>
+                    </tr>
+                    <tr>
+                        <td>Carrot</td>
+                        <td>JP Organics</td>
+                        <td>Certified Organic</td>
+                        <td>Yorkshire, UK</td>
+                    </tr>
+                    <tr>
+                        <td>Strawberries</td>
+                        <td>Filip's Strawberry farm</td>
+                        <td>Certified Organic</td>
+                        <td>Greater Manchester, UK</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <footer>
+        <a href="/"><img src="/static/assets/logo.png" height="400px" width="400px" /></a>
+
+        <div class="sitemap">
+            <h1>Sitemap</h1>
+            <a href="/">Home</a>
+            <a href="/contactus">Contact us</a>
+            <a href="/aboutus">About us</a>
+            <a href="/shophome">Shop</a>
+        </div>
+
+    </footer>
+
+    <script src="/static/quantity.js"></script>
+    <script src="/static/shopping-cart.js"></script>
+</body>
+</html>
